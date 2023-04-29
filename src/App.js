@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import PersonalInfo from './components/PersonalInfo';
+import Education from './components/Education';
+import Experience from './components/Experience';
+import './styles/index.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      personalInfo: {
+        name: '',
+        email: '',
+        phone: '',
+      },
+      education: [],
+      experience: [],
+    };
+    this.handlePersonalInfoSubmit = this.handlePersonalInfoSubmit.bind(this);
+    this.handleEducationSubmit = this.handleEducationSubmit.bind(this);
+    this.handleExperienceSubmit = this.handleExperienceSubmit.bind(this);
+  }
+
+  handlePersonalInfoSubmit(info) {
+    this.setState({ personalInfo: info });
+  }
+
+  handleEducationSubmit(edu) {
+    this.setState({ education: [...this.state.education, edu] });
+  }
+
+  handleExperienceSubmit(exp) {
+    this.setState({ experience: [...this.state.experience, exp] });
+  }
+
+  render() {
+    const { personalInfo, education, experience } = this.state;
+    return (
+      <div className="container">
+        <h1>CV Creator</h1>
+        <PersonalInfo
+          personalInfo={personalInfo}
+          handleSubmit={this.handlePersonalInfoSubmit}
+        />
+        <Education
+          education={education}
+          handleSubmit={this.handleEducationSubmit}
+        />
+        <Experience
+          experience={experience}
+          handleSubmit={this.handleExperienceSubmit}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;

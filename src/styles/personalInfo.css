@@ -1,0 +1,32 @@
+body {
+  background-color: rgb(247, 237, 237);
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.general {
+  display: flex;
+  flex-direction: column;
+  width: 32rem;
+  border: 2px solid rgb(248, 208, 208);
+  margin-top: 20px;
+  padding: 15px;
+}
+h2 {
+  color: rgb(78, 75, 75);
+}
+input {
+  border-radius: 5px;
+  margin-top: 10px;
+  border: 1px solid grey;
+}
+button {
+  background-color: rgb(141, 139, 139);
+  border: 1px solid rgb(53, 52, 52);
+  margin-top: 10px;
+  border-radius: 5px;
+  height: 25px;
+  width: 110px;
+  margin-right: 4px;
+}
